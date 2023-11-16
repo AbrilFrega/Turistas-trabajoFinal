@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;0,700;1,400&display=swap');
+
+:root {
+    --padding-container: 100px o;
+    --color-title: white;
+}
+
+/*Seleccion de fuente para la pagina web*/
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*Imagen principal de la web con texto incluído como presentación de lo que habrá a continuación*/
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--padding-container);
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: flexbox;
+    color: white;
+    /*Anadir imagen de fondo para el inicio de la pagina y que tenga texto superpuesto*/
+    background-image: url(img/macarons.jpg);
+    background-size: cover;
+    background-position: center;
+    /*Determinar forma especifica de la imagen para hacer la presentacion mas estetica*/
+    clip-path: polygon(50% 0%, 100% 0, 82% 100%, 18% 100%, 0 0);
+    z-index: -1; /*pasar la imagen al fondo para que resalte el texto*/
+}
+
+/*Nav*/
+
+.nav {
+    --pading-containe: 0;
+    height: 100%;
+    display: flex;
+    align-items: right;
+}
+
+.nav__title {
+    font-weight: 300;
+}
+
+/*Alinear los items para que queden lado a lado en la navbar*/
+
+.nav__link {
+    margin-left: auto;
+    font-size: 20px;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+}
+
+.nav__items {
+    list-style: none;
+}
+
+.nav__links {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav__menu {
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+/* Hero container */
+
+.hero__container {
+    /* Contenedor de la seccion principal de presentacion */
+    max-width: 800px;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1.5em;
+    padding-bottom: 100px;
+    text-align: center;
+    overflow: hidden; /* Oculta el contenido que desborda del contenedor */
+}
+
+/*Determinar medidas específicas para que el contedino se adapte facilmente a la pantalla*/ 
+@media screen and (max-width: 768px) {
+    .hero__title {
+        font-size: 4vw;
+        /* Ajusta el tamaño del texto para pantallas más pequeñas */
+    }
+
+    .hero__paragraph {
+        margin-top: 1vw;
+        font-size: 1vw;
+    }
+}
+
+.hero__title {
+    position: absolute;
+    font-size: 3rem;
+    text-align: center;
+    left: 20%;
+    margin-right: 20%;
+    top: 20%; /*Ajustar el valor para subir o bajar desde el centro de la web*/
+    z-index: 1;
+}
+
+/*Agregado del botón específico que pueda redirigir al apartado más útil de nuestra web*/ 
+.cta {
+    position: absolute;
+    background-color: pink;
+    justify-self: center;
+    padding: 13px 20px;
+    border-radius: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    top: 50%; /* Ajusta este valor para subir o bajar */
+    left: 42%;
+    color: black;
+}
+
+/*Primeras reseñas gastronómicas a exponer-hacer una selección de 3 lugares variados */ 
+.about{
+    text-align: center;
+}
+
+.subtitle{
+    color: var(--color-title);
+    font-size: 2rem;
+    margin-bottom: 25px;
+}
+
+.about__paragraph{
+    line-height: 1.7;
+}
+
+/*Alinear el contenido para que quede en el centro de la web y también pueda ajustarse al tamaño de la pantalla*/ 
+.about__main{
+    padding-top: 80px;
+    display: grid;
+    width: 90%;
+    margin: 0 auto;
+    gap: 1em;
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+}
+
+.about__icons{
+    display: grid;
+    gap: 1em;
+    justify-items: center;
+    width: 260px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.about__icon{
+    width: 40px;
+}
+
+
+/* Knowledge-Ajustar al ancho total de la web y que dentro del recuadro figure el contenido total*/
+
+.knowledge{
+    background-color: #e5e5f7;
+    background-image: radial-gradient(#e38ede 0.75px, #e5e5f7 0.75px);
+    background-size: 15px 15px;
+overflow: hidden;
+}
+
+/*Encolumnar el contenido para que tenga una estructura ordenada y legible en pos de que quede estéticamente bien*/ 
+.knowledge__container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    align-items: center;
+}
+
+.knowledge__picture{
+    max-width: 500px;
+}
+
+.knowledge__paragraph{
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: black;
+}
+
+.subtitle{
+    color: black;
+}
+
+/*Colocar un ancho máximo que sea en relación al tamaño de la web y para que esta pueda ajustarse a los cambios de pantalla*/
+.knowledge__img{
+    width: 100%;
+    display: block;
+}
+
+/* Inclusion del mapa de la ciudad para luego establecer atajos para los usuarios */
+.titulo__mapa{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold; /*negrita */
+}
+
+/*Colocar un ancho máximo para que se aproveche todo el espacio y se ajuste a los cambios de tamaño de la pantalla*/
+.map{
+    width: 100%;
+    max-width: 100%; /* Asegura que el mapa no exceda el 100% del ancho de la ventana */
+    margin-top: 25px;
+}
+
+
+/*Questions-Conocer más a los usuarios a partir de la siguiente información */
+.questions{
+    text-align: center;
+}
+
+/*Organizar en container para que todo quede ordenado en el mismo sector y no se superponga con el resto de la web*/
+.questions__container{
+    display: grid;
+    gap: 2em;
+    padding-top:50px;
+    padding-bottom: 100px;
+}
+
+.questions__padding{ /*Se agrega padding dinamico y con transicion*/
+    padding: 0;
+    transition: padding .3s;
+    border: 1px solid pink;
+    border-radius: 6px;
+}
+
+.questions__padding--add{
+    padding-bottom: 20px;
+}
+
+.questions__answer{
+    padding: 30px 0 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.questions__title{
+    display: flex;
+    font-size: 20px;
+    padding: 5px 0 5px;
+    cursor: pointer;
+    justify-content: space-between; /*El icono queda en la esquina*/
+
+}
+
+/*Posicionar el ícono elegido en la misma línea que el título de cada pregunta*/
+.questions__arrow{
+    border-radius: 50%;
+    background-color: var(--color-title);
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-end;
+    margin-left: 10px;
+    transition: transform .3s;
+}
+
+.questions__arrow--rotate{
+    transform: rotate(180deg);
+}
+
+/*Establecer que las respuestas a nuestras preguntas queden ocultas a primera vista*/
+.questions__show{
+    text-align: left;
+    height: 0;
+    overflow: hidden;
+    transition: height .3s;
+ 
+}
+
+.questions__img{
+    display: none;
+}
+
+
+/* Footer */
+
+.footer{
+    background-color: palevioletred;
+}
+
+.footer__title{
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.footer__title, .footer__newletter{
+    color: black;
+}
+
+.footer__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 60px;
+}
+
+.nav--footer{
+    padding-bottom: 20px;
+    display: grid;
+    gap: 1em;
+    grid-auto-flow: row;
+    height: 100%;
+}
+
+.nav__link--footer{
+    display: flex;
+    margin: 0;
+    margin-right: 20px;
+    flex-wrap: wrap;
+}
+
+
+.footer__inputs{
+    margin-top: 10px;
+    display: flex;
+    overflow: hidden;
+}
+
+.footer__input{
+    background-color: white;
+    height: 50px;
+    display: block;
+    padding-left: 10px;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    margin-right: 16px;
+}
+
+
+.footer__submit{
+    margin-left: auto;
+    display: inline-block;
+    height: 50px;
+    padding: 0 20px;
+    background-color: fuchsia;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    border-radius: 6px;
+}
+
+.footer__copy{
+    --padding-container: 30px 0;
+    text-align: center;
+    color: white;
+}
+
+.footer__icons{
+    display: inline-flex;
+    margin-bottom: 10px;
+}
+
+.footer__icon{
+    width: 30px;
+}
+
+/*Media queries*/
+@media (max-width:800px){
+    .hero__title{
+        font-size: 2.5rem;
+    }
+
+    .hero__paragraph{
+        font-size: 1rem;
+        text-align: center;
+    }
+
+}
